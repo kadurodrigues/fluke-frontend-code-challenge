@@ -1,24 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import api from './services/api';
 
-const App: React.FC = () => {
+interface Category {
+  id: string,
+  title: string,
+}
+
+interface Sources {
+  id: string,
+  url: string,
+}
+
+interface Geometries {
+  date: string,
+  type: string,
+}
+
+interface Event {
+  id: string,
+  title: string,
+  description: string,
+  link: string,
+  closed: string,
+  category: Category,
+  sources: Sources,
+  geometries: Geometries
+}
+
+const App: React.FC = () => { 
+  const [events, setEvents] = useState<Array<Event>>();
+
+  useEffect(() => {
+    async function fetchEvents() {
+      const [ opened, closed ] = await Promise.all([ 
+        api('open'), 
+        api('closed') 
+      ]);
+      setEvents([...opened.events, ...closed.events]);
+    }
+    fetchEvents();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Fluke</h1>
+      <ul>
+        {events?.map(event => (
+          <li 
+            key={event.id}
+            className={event.closed !== undefined ? 'closed' : 'opened'}
+          >
+            {event.title}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
