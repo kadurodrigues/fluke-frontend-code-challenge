@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { AiFillFire } from "react-icons/ai";
-import { GiWhirlwind } from "react-icons/gi";
-import { WiVolcano } from "react-icons/wi";
-import { List, ListItem, LinkStyled, IconWrapper, ArrowForward } from "./style";
+import { AiFillFire } from 'react-icons/ai';
+import { GiWhirlwind } from 'react-icons/gi';
+import { WiVolcano } from 'react-icons/wi';
+import { List, ListItem, LinkStyled, IconWrapper, ArrowForward } from './style';
 
 interface Category {
   id: string;
@@ -31,9 +31,9 @@ interface EventProps {
 
 const handleEventIcon = (categories: Array<Category>) => {
   const type = categories[0].title;
-  return type === "Wildfires" ? (
+  return type === 'Wildfires' ? (
     <AiFillFire />
-  ) : type === "Volcanoes" ? (
+  ) : type === 'Volcanoes' ? (
     <WiVolcano />
   ) : (
     <GiWhirlwind />
@@ -44,21 +44,25 @@ const EventsList = ({ events }: EventProps) => {
   return (
     <>
       <List>
-        {events?.map(({ id, closed, link, title, categories }) => (
-          <ListItem key={id} closed={closed}>
-            <LinkStyled
-              to={{
-                pathname: "/event",
-                search: `?id=${id}`,
-                state: { url: link }
-              }}
-            >
-              <IconWrapper>{handleEventIcon(categories)}</IconWrapper>
-              <p>{title}</p>
-              <ArrowForward />
-            </LinkStyled>
-          </ListItem>
-        ))}
+        {events?.length ? (
+          events.map(({ id, closed, title, categories }) => (
+            <ListItem key={id} closed={closed}>
+              <LinkStyled
+                to={{
+                  pathname: '/event',
+                  search: `?id=${id}`,
+                  state: { eventId: id }
+                }}
+              >
+                <IconWrapper>{handleEventIcon(categories)}</IconWrapper>
+                <p>{title}</p>
+                <ArrowForward />
+              </LinkStyled>
+            </ListItem>
+          ))
+        ) : (
+          <p>No Events found!</p>
+        )}
       </List>
     </>
   );

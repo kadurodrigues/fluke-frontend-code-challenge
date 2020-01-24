@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
+import { eventAPI } from '../../services/apis';
 
 import { BackButton, ArrowLeft } from "./style";
 
 const Event: React.FC = () => {
   const [event, setEvent] = useState();
   const {
-    state: { url }
+    state: { eventId }
   } = useLocation();
   const history = useHistory();
 
   useEffect(() => {
     async function fetchEvent() {
-      const data = await fetch(url);
-      const event = await data.json();
-
-      console.log(event);
+      const event = await eventAPI(eventId);
       setEvent(event);
     }
 
     fetchEvent();
-  }, [url]);
+  }, [eventId]);
 
   return (
     <>
