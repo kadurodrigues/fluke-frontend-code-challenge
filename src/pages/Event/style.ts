@@ -16,3 +16,9 @@ export const ArrowLeft = styled(FaArrowLeft)`
   font-size: 22px;
   margin-right: 6px;
 `
+
+export const Title = styled.h1`
+  margin: 20px 0;
+  font-size: 20px;
+  color: #fff;
+`

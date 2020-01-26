@@ -47,3 +47,8 @@ export const ArrowForward = styled(IoIosArrowForward)`
   margin-left: auto;
   font-size: 28px;
 `
+
+export const Image = styled.img`
+  max-width: 100%;
+  height: 20px;
+`

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { eventAPI } from '../../services/apis';
-
-import { BackButton, ArrowLeft } from "./style";
+import EventMap from '../../components/EventMap';
+import { BackButton, ArrowLeft, Title } from "./style";
 
 const Event: React.FC = () => {
   const [event, setEvent] = useState();
+  const [coordinates, setCoordinates] = useState();
   const {
     state: { eventId }
   } = useLocation();
@@ -15,6 +16,9 @@ const Event: React.FC = () => {
     async function fetchEvent() {
       const event = await eventAPI(eventId);
       setEvent(event);
+
+      const [longitude, latitude ] = event.geometries[0].coordinates;
+      setCoordinates({ longitude, latitude })
     }
 
     fetchEvent();
@@ -26,7 +30,8 @@ const Event: React.FC = () => {
         <ArrowLeft />
         Back
       </BackButton>
-      <h1>{event?.title}</h1>
+      <Title>{event?.title}</Title>
+      <EventMap {...coordinates} />
     </>
   );
 };

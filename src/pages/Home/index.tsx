@@ -5,7 +5,7 @@ import EventsList from '../../components/EventsList';
 import StatusFilter from '../../components/StatusFilter';
 import CategoriesFilter from '../../components/CategoriesFilter';
 import DateFilter from '../../components/DateFilter';
-import Loading from '../../components/Loading';
+import Loader from '../../components/Loader';
 
 import { Filters } from './styles';
 
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     isFetchingData,
   } = useFetchEvents()
 
-  if (isFetchingData) return <Loading />
+  if (isFetchingData) return <Loader />
   
   return (
     <>

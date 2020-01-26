@@ -7,6 +7,11 @@ export interface Event {
   geometries: []
 }
 
+export interface Category {
+  id: string;
+  title: string;
+}
+
 export interface RootReducer {
   eventsReducer: {
     events: [],
