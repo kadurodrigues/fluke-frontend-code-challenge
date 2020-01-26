@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const FiltersWrapper = styled.div`
+export const Filters = styled.div`
   display: flex;
 `
