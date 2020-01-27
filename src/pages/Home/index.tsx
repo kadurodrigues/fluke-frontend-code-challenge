@@ -1,5 +1,5 @@
 import React from 'react';
-import useFetchEvents from '../../helpers/fetchEvents';
+import useFetch from '../../helpers/useFetch';
 
 import EventsList from '../../components/EventsList';
 import StatusFilter from '../../components/StatusFilter';
@@ -13,12 +13,12 @@ const Home: React.FC = () => {
   const {
     events,
     eventsFiltered,
-    isEventsFiltered,
     isFetchingData,
-  } = useFetchEvents()
+    isEventsFiltered
+  } = useFetch()
 
   if (isFetchingData) return <Loader />
-  
+
   return (
     <>
       <Filters>
