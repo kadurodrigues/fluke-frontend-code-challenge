@@ -7,7 +7,9 @@ interface ListItemProps {
 }
 
 export const List = styled.ul`
+  height: 100%;
   margin: 0;
+  padding: 0 14px;
 `
 
 export const ListItem = styled.li<ListItemProps>`
@@ -53,4 +55,15 @@ export const ArrowForward = styled(IoIosArrowForward)`
 export const Image = styled.img`
   max-width: 100%;
   height: 20px;
+`
+
+export const EventsNotFound = styled.div`
+  display: flex;
+  justify-content: center;
+  height: calc(100% - 60px);
+  align-items: center;
+
+  p {
+    color: #fff;
+  }
 `

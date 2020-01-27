@@ -5,7 +5,8 @@ import {
   ListItem, 
   LinkStyled, 
   IconWrapper, 
-  ArrowForward
+  ArrowForward,
+  EventsNotFound
 } from './style';
 
 import { ReactComponent as FireIcon } from '../../assets/icons/fire.svg';
@@ -47,7 +48,9 @@ const EventsList = ({ events }: EventsProps) => (
         </ListItem>
       ))
     ) : (
-      <p>No Events found!</p>
+      <EventsNotFound>
+        <p>No Events found!</p>
+      </EventsNotFound>
     )}
   </List>
 );

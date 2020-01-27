@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+export const Container = styled.div`
+  padding: 14px;
+`
+
 export const LinkStyled = styled(Link)`
   display: flex;
   align-items: center;

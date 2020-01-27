@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { eventAPI } from '../../services/apis';
 import EventMap from '../../components/EventMap';
-import { LinkStyled, ArrowLeft, Title } from "./style";
+import { Container, LinkStyled, ArrowLeft, Title } from "./style";
 
 const Event: React.FC = () => {
   const [event, setEvent] = useState();
@@ -25,7 +25,7 @@ const Event: React.FC = () => {
   }, [eventId]);
 
   return (
-    <>
+    <Container>
       <LinkStyled
         to={{
           pathname: '/',
@@ -37,7 +37,7 @@ const Event: React.FC = () => {
       </LinkStyled>
       <Title>{event?.title}</Title>
       <EventMap {...coordinates} />
-    </>
+    </Container>
   );
 };
 

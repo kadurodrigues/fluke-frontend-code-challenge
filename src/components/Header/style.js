@@ -8,7 +8,7 @@ export const Container = styled.header`
 
   svg {
     max-width: 100%;
-    height: 60px;
+    height: 50px;
   }
 `
 
