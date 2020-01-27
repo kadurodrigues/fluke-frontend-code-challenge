@@ -20,7 +20,7 @@ const Filter: React.FC<FilterProps> = ({
   <Content>
     <FilterTitle>{title}</FilterTitle>
     <DropDown onChange={handleFilterChange} width={width}>
-      {options.map(({ value, label }) => (
+      {options?.map(({ value, label }) => (
         <option key={label} value={value}>
           {label}
         </option>
@@ -30,3 +30,4 @@ const Filter: React.FC<FilterProps> = ({
 );
 
 export default Filter;
+

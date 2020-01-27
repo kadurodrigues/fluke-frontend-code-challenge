@@ -22,11 +22,10 @@ const FetchEvents = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: FETCH_DATA_STARTED });
-
     async function fetchEvents() {
+      dispatch({ type: FETCH_DATA_STARTED });
+
       try {
-  
         const [responseA, responseB, responseC] = await Promise.all([
           eventsAPI('open'),
           eventsAPI('closed'),
@@ -51,8 +50,11 @@ const FetchEvents = () => {
       }
     }
 
-    fetchEvents();
-  }, [dispatch]);
+    if (!events.length) {
+      fetchEvents();
+    }
+
+  }, [dispatch, events]);
 
   return {
     events,

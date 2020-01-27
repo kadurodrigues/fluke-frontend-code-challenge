@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { eventAPI } from '../../services/apis';
 import EventMap from '../../components/EventMap';
-import { BackButton, ArrowLeft, Title } from "./style";
+import { LinkStyled, ArrowLeft, Title } from "./style";
 
 const Event: React.FC = () => {
   const [event, setEvent] = useState();
@@ -26,10 +26,15 @@ const Event: React.FC = () => {
 
   return (
     <>
-      <BackButton onClick={() => history.push("/")}>
+      <LinkStyled
+        to={{
+          pathname: '/',
+          state: { from: history.location.pathname }
+        }}
+      >
         <ArrowLeft />
         Back
-      </BackButton>
+      </LinkStyled>
       <Title>{event?.title}</Title>
       <EventMap {...coordinates} />
     </>

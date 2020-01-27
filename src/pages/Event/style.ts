@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { FaArrowLeft } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-export const BackButton = styled.button`
+export const LinkStyled = styled(Link)`
   display: flex;
   align-items: center;
   border: 0;

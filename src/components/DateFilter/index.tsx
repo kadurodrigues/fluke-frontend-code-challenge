@@ -8,7 +8,7 @@ import { RootReducer } from '../../utils/types';
 const DateFilter: React.FC = () => {
   const { events } = useSelector((state: RootReducer) => state.eventsReducer);
   const dispatch = useDispatch();
-
+  
   const filterOptions = {
     title: 'Order By',
     options: [
@@ -17,8 +17,8 @@ const DateFilter: React.FC = () => {
       { value: 'oldest', label: 'Oldest' }
     ],
     handleFilterChange: (event: any) => handleFilterDate(event.target.value)
-  };
-
+  }
+  
   const handleFilterDate = (option: string) => {
     const eventsFiltered = events
       .map((event: any) => ({
@@ -42,7 +42,7 @@ const DateFilter: React.FC = () => {
       : dispatch({ type: FILTER_EVENTS, payload: eventsFiltered })
   }
 
-  return <Filter {...filterOptions} />
+  return <Filter {...filterOptions} /> 
 }
 
 export default DateFilter;

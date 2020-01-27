@@ -9,7 +9,7 @@ interface CoordinatesProps {
 const EventMap: React.FC<CoordinatesProps> = ({ longitude, latitude }) => {
   const [viewport, setViewport] = useState({
     height: 400,
-    zoom: 8
+    zoom: 6
   });
 
   return (

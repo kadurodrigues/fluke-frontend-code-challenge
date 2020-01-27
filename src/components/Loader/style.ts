@@ -13,7 +13,7 @@ export const Backdrop = styled.div`
 
 export const Spinner = styled.div`
   border: 4px solid rgba(0, 0, 0, 0.2);
-  border-left-color: #2ad8b5;
+  border-left-color: #4dbdff;
   border-radius: 50%;
   width: 40px;
   height: 40px;

@@ -1,15 +1,18 @@
 import React from 'react';
-import { AiFillFire } from 'react-icons/ai';
-import { GiWhirlwind } from 'react-icons/gi';
-import { WiVolcano } from 'react-icons/wi';
 
-import Fire from '../../assets/fire.svg';
-import Tornado from '../../assets/tornado.svg';
-import Volcano from '../../assets/volcano.svg';
+import { 
+  List, 
+  ListItem, 
+  LinkStyled, 
+  IconWrapper, 
+  ArrowForward
+} from './style';
 
-import { List, ListItem, LinkStyled, IconWrapper, ArrowForward, Image } from './style';
-import { Category, Event } from '../../utils/types'
+import { ReactComponent as FireIcon } from '../../assets/icons/fire.svg';
+import { ReactComponent as TornadoIcon } from '../../assets/icons/tornado.svg';
+import { ReactComponent as VolcanoIcon } from '../../assets/icons/volcano.svg';
 
+import { Category, Event } from '../../utils/types';
 interface EventsProps {
   events: Event[];
 }
@@ -17,11 +20,11 @@ interface EventsProps {
 const handleEventIcon = (categories: Category[]) => {
   const type = categories[0].title;
   return type === 'Wildfires' ? (
-    <Image src={Fire} alt="" />
+    <FireIcon />
   ) : type === 'Volcanoes' ? (
-    <Image src={Volcano} alt="" />
+    <VolcanoIcon />
   ) : (
-    <Image src={Tornado} alt="" />
+    <TornadoIcon />
   );
 };
 

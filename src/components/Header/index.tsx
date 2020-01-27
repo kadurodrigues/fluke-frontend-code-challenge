@@ -1,10 +1,12 @@
 import React from 'react';
+import { ReactComponent as NasaLogo } from '../../assets/img/nasa-logo.svg';
 import { Container, Title } from './style';
 
 const Header: React.FC = () => {
   return (
     <Container>
-      <Title>Natural Observatory Tracker</Title>
+      <NasaLogo />
+      <Title>EONET</Title>
     </Container>
   )
 }

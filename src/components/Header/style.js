@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
+  display: flex;
+  align-items: center;
   padding: 14px;
-  background-color: #2a3a48;
+  background-color: #28303e;
+
+  svg {
+    max-width: 100%;
+    height: 60px;
+  }
 `
 
 export const Title = styled.h1`

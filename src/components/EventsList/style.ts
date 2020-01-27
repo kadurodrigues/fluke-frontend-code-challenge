@@ -23,7 +23,9 @@ export const ListItem = styled.li<ListItemProps>`
   }
 
   svg {
-    color: ${(props: ListItemProps) => props.closed !== undefined ? 'rgba(255,255,255,.2)' : '#fff' };
+    max-width: 100%;
+    height: 20px;
+    fill: ${(props: ListItemProps) => props.closed !== undefined ? 'rgba(255,255,255,.2)' : '#4dbdff' };
   }
 `
 
