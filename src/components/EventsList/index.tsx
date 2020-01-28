@@ -42,7 +42,7 @@ const EventsList = ({ events }: EventsProps) => (
             }}
           >
             <IconWrapper>{handleEventIcon(categories)}</IconWrapper>
-            <p>{title}</p>
+              <p>{title}</p>
             <ArrowForward />
           </LinkStyled>
         </ListItem>

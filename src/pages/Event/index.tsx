@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { eventAPI } from '../../services/apis';
 import EventMap from '../../components/EventMap';
 import { Container, LinkStyled, ArrowLeft, Title } from "./style";
@@ -10,7 +10,6 @@ const Event: React.FC = () => {
   const {
     state: { eventId }
   } = useLocation();
-  const history = useHistory();
 
   useEffect(() => {
     async function fetchEvent() {
@@ -26,12 +25,7 @@ const Event: React.FC = () => {
 
   return (
     <Container>
-      <LinkStyled
-        to={{
-          pathname: '/',
-          state: { from: history.location.pathname }
-        }}
-      >
+      <LinkStyled to={{ pathname: '/' }}>
         <ArrowLeft />
         Back
       </LinkStyled>
